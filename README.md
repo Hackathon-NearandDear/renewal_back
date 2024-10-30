@@ -1,4 +1,4 @@
-### Welcome to ApptoS
+### Welcome to Near and Dear
 
 There are few steps to initiate our backend
 
