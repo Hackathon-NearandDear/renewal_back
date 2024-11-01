@@ -13,7 +13,7 @@ from AI.crud import add_text, delete_text
 from AI.main import rag_qa
 from fastapi.middleware.cors import CORSMiddleware
 
-from Blockchain import contract, legacy
+from Blockchain import contract
 
 import random
 from time import ctime
@@ -31,7 +31,7 @@ app.include_router(contracts.router, prefix="/contracts", tags=["contracts"])
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:7000", "http://localhost:5000", 'https://apptos.ysblockblock.com'],  # 허용할 클라이언트의 도메인
+    allow_origins=["http://localhost:3000", "https://nearanddear.ysblockblock.com", "http://localhost:5000", 'https://apptos.ysblockblock.com'],  # 허용할 클라이언트의 도메인
     allow_credentials=True,
     allow_methods=["*"],  # 허용할 HTTP 메서드 (GET, POST, OPTIONS 등)
     allow_headers=["*"],  # 허용할 헤더

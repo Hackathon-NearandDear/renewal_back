@@ -1,23 +1,23 @@
 from fastapi import APIRouter, Query, Depends
 from sqlalchemy.orm import Session
 
-from Blockchain import contract, legacy
+from Blockchain import contract
 from DB import utils, users
 
 router = APIRouter()
 
-@router.post("/register_user", response_model=bool)
+@router.post("/register_user", response_model=str)
 def register_user(
     user_address: str = Query("", description="user address"),
     db: Session = Depends(utils.get_db)
 ):
-    creator_obj_address, consumer_obj_address = contract.register_user(user_address=user_address)
+    res = contract.register_user(user_address=user_address)
     # User Table에 creator_obj_address 와 consumer_obj_address 넣어 줘야 함
+    print(res)
 
 
 
-
-    return True
+    return res
 
 @router.post("/register_ai", response_model=str)
 def register_ai(
